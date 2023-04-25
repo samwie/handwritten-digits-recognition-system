@@ -25,20 +25,33 @@ class App(object):
         self.window.mainloop()
 
     def setup(self):
-        self.my_canvas.bind("<Button-1>", self.initial_cordinates)
-        self.my_canvas.bind("<B1-Motion>", self.draw)
+        # self.my_canvas.bind("<Button-1>", self.initial_cordinates)
+        # self.my_canvas.bind("<B1-Motion>", self.draw)
         self.my_canvas.bind("<Button-3>", self.clear_sketchbook)
         self.my_canvas.bind("<Button-2>", self.predict_number)
+        self.my_canvas.bind("<B1-Motion>", self.draw_event)
 
-    def initial_cordinates(self, event):
-        global x_cord, y_cord
-        self.x_cord, self.y_cord = event.x, event.y
+    def draw_event(self, event):
+        self.x = event.x
+        self.y = event.y
 
-    def draw(self, event):
-        global x_cord, y_cord
-        self.my_canvas.create_line((self.x_cord, self.y_cord, event.x, event.y),
-                                   fill='black', width=8)
-        self.x_cord, self.y_cord = event.x, event.y
+        self.x1 = self.x-30
+        self.y1 = self.y - 30
+        self.x2 = self.x + 30
+        self.y2 = self.y + 30
+
+        self.my_canvas.create_oval(
+            (self.x1, self.y1, self.x2, self.y2), fill='black')
+
+    # def initial_cordinates(self, event):
+    #     global x_cord, y_cord
+    #     self.x_cord, self.y_cord = event.x, event.y
+
+    # def draw(self, event):
+    #     global x_cord, y_cord
+    #     self.my_canvas.create_line((self.x_cord, self.y_cord, event.x, event.y),
+    #                                fill='black', width=30)
+    #     self.x_cord, self.y_cord = event.x, event.y
 
     def clear_sketchbook(self, event):
         self.my_canvas.delete('all')
