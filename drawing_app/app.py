@@ -70,9 +70,10 @@ class App(object):
         # Convert to grayscale
         self.image = self.image.convert('L')
         self.image = np.array(self.image)
+        self.image = np.invert(self.image)
         self.image = self.image.reshape([1, 64])
         self.prediction = self.model.predict(self.image)
-        # self.label = np.argmax(self.prediction, axis=1)
+        # self.label = np.argmax(self.prediction)
         self.number_label.config(text='PREDICTED:' + str(self.prediction))
 
 
