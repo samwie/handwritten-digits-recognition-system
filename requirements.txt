@@ -1,0 +1,7 @@
+scikit-learn
+matplotlib
+tk
+io
+pickle5
+Pillow
+numpy
