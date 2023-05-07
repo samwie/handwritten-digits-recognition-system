@@ -19,7 +19,7 @@ class App(object):
         self.my_canvas.pack()
 
         self.setup()
-        self.load_model('./../training/model.pkl')
+        self.load_model('./training/model.pkl')
         self.window.mainloop()
 
     def setup(self):
@@ -60,6 +60,7 @@ class App(object):
         self.image = np.round(self.image/16.0)
         self.prediction = self.model.predict(self.image)
         self.number_label.config(text='PREDICTED:' + str(self.prediction))
+
 
 if __name__ == '__main__':
     App()
