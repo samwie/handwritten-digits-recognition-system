@@ -38,9 +38,9 @@ python3 gui_app.py
 
 # Algorithm for prediction of digits drawn in GUI application
 1. Taking an image from Canvas and converting it to postscript.
-2. Przetworzenie postscript na obraz za pomocą biblioteki Image.
+2. Convert postscript to an image using the Image library.
 3. Resize the image to 8x8 pixels, convert to grayscale and reverse the colors.
-4. Przekształcenie macierzy pixeli obrazu z postaci 2D na postać 1D o wymiarach [1, 64].
+4. Convert an image pixel matrix from a 2D form to a 1D form with dimensions [1, 64].
 5. Convert the pixel matrix from 8-bit to 4-bit.
 6. Making a prediction using a pre-trained model.
 
